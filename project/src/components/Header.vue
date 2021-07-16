@@ -20,19 +20,6 @@
           <router-link class="nav-link" to="/basket" v-if="email"><i class="material-icons">shopping_basket</i></router-link>
         </li>
       </ul>
-      <div class="dropdown" v-if="email">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <div class="avatar">
-            <img class="avatar" src="@/assets/ava.jpg">
-          </div>
-          <span>{{ this.full_name }}</span>
-        </button>
-
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button"><router-link to="/settings" class="rl">Настройки</router-link></button>
-          <button class="dropdown-item exit" type="button" @click="logout">Выйти</button>
-        </div>
-      </div>
       <ul class="btns" v-if="!email">
         <li>
           <router-link to="/autho" type="button" class="btn btn-outline-primary">Авторизация</router-link>
@@ -61,6 +48,25 @@
         </div>
       </div>
 
+      <div class="dropdown_menu_user" v-if="email">
+        <div class="btn btn_user" @click="dropDown">
+          <div class="avatar">
+            <img class="avatar" src="@/assets/ava.jpg">
+          </div>
+          <span>{{ this.full_name }}</span>
+          <img v-if="!menu" class="arrow" src="@/assets/arr_down.svg" alt="">
+          <img v-if="menu" class="arrow" src="@/assets/arr_up.svg" alt="">
+        </div>
+
+        <div class="dropdown_menu_items" v-if="menu">
+          <p class="dropdown_menu_items_item m_item"><router-link to="/userPage">Главная</router-link></p>
+          <p class="dropdown_menu_items_item m_item"><router-link to="/catalog">Каталог</router-link></p>
+          <p class="dropdown_menu_items_item m_item"><router-link to="/tracking">Отследить заказ</router-link></p>
+          <p class="dropdown_menu_items_item m_item"><router-link to="/basket">Корзина</router-link></p>
+          <p class="dropdown_menu_items_item" type="button"><router-link to="/settings" class="rl">Настройки</router-link></p>
+          <p class="dropdown_menu_items_item exit" type="button" @click="logout">Выйти</p>
+        </div>
+      </div>
     </div>
   </header>
 </template>
@@ -144,11 +150,6 @@ li{
   background-color: white;
   float: left;
 }
-.dropdown{
-  margin-right: 60px;
-  min-width: 160px;
-}
-
 .exit{
   color: red;
 }
@@ -161,20 +162,6 @@ img{
   width: 30px !important;
   height:  30px !important;
   border-radius: 20px;
-}
-
-.dropdown-toggle{
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.dropdown-menu{
-  width: auto;
-}
-
-span{
-  margin-left: 15px;
 }
 
 .btns{
@@ -191,13 +178,15 @@ span{
   font-size:1.1em;
 }
 
-.dropdown_menu{
+.dropdown_menu,.dropdown_menu_user{
   width: 150px;
-  display: none;
   margin-right: 20px;
   z-index: 1000;
 }
-.btn_dropdown{
+.dropdown_menu{
+  display: none;
+}
+.btn_dropdown,.btn_user{
   width: 100%;
   text-align: left;
   color: #4E4E4E;
@@ -206,6 +195,8 @@ span{
   display: flex;
   justify-content: space-between;
   font-weight: 600;
+}
+.btn_dropdown{
   padding-right: 50px;
 }
 .dropdown_menu_items{
@@ -241,6 +232,9 @@ span{
 .small{
   display: none;
 }
+.m_item{
+  display: none;
+}
 @media (max-width: 1040px){
   .header{
     font-size: 1.1em;
@@ -264,6 +258,9 @@ span{
 @media (max-width: 810px){
   ul{
     display: none!important;
+  }
+  .m_item{
+    display: block;
   }
   .dropdown_menu{
     display: block;
