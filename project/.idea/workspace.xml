@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6f46837e-6fb5-45c1-895a-5dadadb38bcb" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/DShMosPolytech/course_project_vesna2021" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ttVPYMh1GVK0umQ0EvaauPI0sn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6f46837e-6fb5-45c1-895a-5dadadb38bcb" name="Default Changelist" comment="" />
+      <created>1623588351683</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1623588351683</updated>
+      <workItem from="1623588356932" duration="3342000" />
+      <workItem from="1623609700728" duration="6081000" />
+      <workItem from="1623681135023" duration="28484000" />
+      <workItem from="1623835676508" duration="1326000" />
+      <workItem from="1623837570466" duration="3884000" />
+      <workItem from="1623879652809" duration="1110000" />
+      <workItem from="1623880858971" duration="11119000" />
+      <workItem from="1624006662640" duration="2465000" />
+      <workItem from="1624131902268" duration="638000" />
+      <workItem from="1624354011824" duration="29209000" />
+      <workItem from="1624466213896" duration="4062000" />
+      <workItem from="1624474685511" duration="137000" />
+      <workItem from="1624541270575" duration="312000" />
+      <workItem from="1624612657240" duration="272000" />
+      <workItem from="1624635748701" duration="18992000" />
+      <workItem from="1624869400540" duration="38618000" />
+      <workItem from="1625134221241" duration="16329000" />
+      <workItem from="1625218349298" duration="1590000" />
+      <workItem from="1625774048868" duration="988000" />
+      <workItem from="1625864331231" duration="10684000" />
+      <workItem from="1625877466054" duration="206000" />
+      <workItem from="1626089181830" duration="43190000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Reg.vue</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/CustomerData.vue</url>
+          <line>74</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
