@@ -298,4 +298,9 @@ img{
     margin-left: 10px;
   }
 }
+@media (max-width: 375px){
+  .dropdown_menu_user{
+    margin-right: 12px;
+  }
+}
 </style>
