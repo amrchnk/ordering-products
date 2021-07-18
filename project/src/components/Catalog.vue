@@ -1,10 +1,13 @@
 <template>
 <main>
-  <div class="wrap text">
-    <h1>Каталог товаров</h1>
-  </div>
   <div class="wrap">
-    <div class="select-wrap">
+    <div class="text">
+      <h1>Каталог товаров</h1>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="select">
       <select name="" id="" class="form-select" @change="onchange()"  v-model="key">
         <option disabled>Фильтр по:</option>
         <option :value="filter" v-for="filter in filters">{{filter}}</option>
@@ -16,27 +19,33 @@
     <div class="catalog">
       <div class="str">
         <div class="item" v-for="(product, index) in products" :key="product.id">
-          <div class="image">
-            <img :src=getImgUrl(product.image_name) alt="">
+          <div class="first">
+            <div class="image">
+              <img :src=getImgUrl(product.image_name) alt="">
+            </div>
+            <div class="description">
+              <h3>{{ product.name }}</h3>
+              <span class="category">{{ product.category }}</span>
+              <p class="description">{{ product.description }}</p>
+            </div>
           </div>
-          <div class="description">
-            <h3>{{ product.name }}</h3>
-            <h4>{{ product.category }}</h4>
-            <p>{{ product.description }}</p>
-            <h4>Цена:<span class="price">{{ product.price }}</span> руб./{{ product.unit }}</h4>
-          </div>
-          <div class="counter">
-            <button class="btn btn-primary toogle minus" @click="counterMinus(index)" :disabled="product.added">-</button>
-            <label>{{ product.counter }}</label>
-            <button class="btn btn-primary toogle plus" @click="counterPlus(index)" :disabled="product.added">+</button>
-          </div>
-          <div v-if="product.added">
-            <span>Добавлено</span>
-          </div>
-          <div v-else>
-            <button class="btn btn-success pay" @click="addInCart(product.id, product.counter, index)">
-              В корзину
-            </button>
+          <div class="second">
+            <h4><span class="price">{{ product.price }}</span> руб./{{ product.unit }}</h4>
+            <div class="counter">
+              <button class="btn btn-primary toogle minus" @click="counterMinus(index)" :disabled="product.added"><img
+                  src="@/assets/minus.svg" alt=""></button>
+              <label>{{ product.counter }}</label>
+              <button class="btn btn-primary toogle plus" @click="counterPlus(index)" :disabled="product.added"><img
+                  src="@/assets/plus.svg" alt=""></button>
+            </div>
+            <div v-if="product.added">
+              <span>Добавлено</span>
+            </div>
+            <div v-else>
+              <button class="btn btn-success pay" @click="addInCart(product.id, product.counter, index)">
+                В корзину
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -249,6 +258,47 @@ name: "Catalog",
 </script>
 
 <style scoped>
+
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.wrap{
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text{
+  width: 100%;
+  margin-top: 50px;
+}
+h1{
+  font-size: 3.4em;
+  font-weight: bold;
+}
+
+.select{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 25px;
+}
+
+select{
+  width: 12em;
+}
+
+.catalog{
+  width: 100%;
+  display:flex;
+  justify-content: space-between;
+  margin: 0 -15px 0 0;
+}
+
 .str{
   display: flex;
   flex-wrap: wrap;
@@ -256,71 +306,130 @@ name: "Catalog",
   margin-top: 10px;
   width: 100%;
 }
-.select-wrap{
-  width: 60%;
-  display: flex;
-  align-items: flex-start;
-}
-.catalog{
-  width: 60%;
-  display:flex;
-  justify-content: space-between;
-}
-h1{
-  text-align: left;
-}
-select{
-  width: 200px;
-  margin-top: 20px;
-}
+
 .item{
   background-color: white;
-  max-width: 32%;
+  width: 23%;
+  margin-right: 15px;
   border-radius: 20px;
-  padding: 30px 40px;
-  margin-top: 20px;
-  /*margin-right: 15px;*/
+  padding: 30px 25px;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.text{
-  margin-top: 30px;
-  width: 60%;
-  text-align: left;
-}
-a{
-  color: white;
-}
-img{
-  width: 60%;
-}
-.price{
-  font-family: 'Open Sans', sans-serif;
-}
-.toogle{
-  width: 40px;
-  text-align: center;
-  margin: 0;
-}
-.counter{
-  display: flex;
-  width: 150px;
-  justify-content: space-between;
-  align-items: center;
-  margin: 20px 0;
-}
 .image{
   display: flex;
   width: 100%;
   justify-content: center;
 }
-label{
+
+label,.price{
   font-family: 'Open Sans', sans-serif;
 }
+
+.toogle{
+   width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   margin: 0;
+ }
+
+.counter{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0 5px;
+}
+
 h3{
-  margin-top: 15px;
+  font-size: 1.6em;
+  margin: 15px 0;
 }
 .pay{
-  margin:0;
+  margin-top:15px;
   width: 100%;
+}
+
+.category{
+  background-color: #5B5B5E;
+  color: white;
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 6px 10px;
+}
+
+.description{
+  margin: 10px 0;
+}
+
+@media (max-width: 1350px){
+  h3{
+    font-size: 1.3em;
+    margin: 15px 0 10px;
+  }
+  .description{
+    font-size: 0.9em;
+  }
+  .category{
+    font-size: 0.8em;
+  }
+  h4{
+    font-size: 1em;
+  }
+  h1{
+    font-size: 3em;
+  }
+  .select{
+    margin-top: 15px;
+  }
+
+  img{
+    width: 100%;
+
+  }
+  .toogle{
+    width: 2.1em;
+    height: 2.1em;
+  }
+  .pay{
+    margin-top:10px;
+    width: 100%;
+    font-size: 0.9em;
+  }
+  label{
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 1200px){
+  .item{
+    padding: 20px;
+  }
+}
+
+@media (max-width: 1070px){
+  .item{
+    width: 30%;
+
+  }
+}
+@media (max-width: 1000px){
+  h1{
+    font-size: 2.5em;
+  }
+}
+@media (max-width: 520px){
+  h1{
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 375px){
+  h1{
+    font-size: 1.9em;
+  }
 }
 </style>

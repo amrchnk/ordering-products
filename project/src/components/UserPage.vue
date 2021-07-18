@@ -62,7 +62,7 @@ img{
 	padding: 6px 25px;
 }
 h1{
-	font-size: 3.5em;
+	font-size: 3.4em;
 	font-weight: bold;
 }
 .one{
@@ -85,6 +85,7 @@ h1{
   width: 32.5%;
   border-radius: 15px;
   height: 16rem;
+  padding-right: 10px;
 }
 
 .blocks{
@@ -96,7 +97,7 @@ h1{
 }
 
 .wrap{
-	width: 80%;
+	width: 70%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -115,11 +116,10 @@ h1{
   }
   .block{
     height: 14rem;
-    padding-right: 10px;
   }
 }
 
-@media (max-width: 950px){
+@media (max-width: 1000px){
   h1{
     font-size: 2.5em;
   }
