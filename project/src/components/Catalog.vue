@@ -18,33 +18,35 @@
   <div class="wrap">
     <div class="catalog">
       <div class="str">
-        <div class="item" v-for="(product, index) in products" :key="product.id">
-          <div class="first">
-            <div class="image">
-              <img :src=getImgUrl(product.image_name) alt="">
+        <div class="item_wrap" v-for="(product, index) in products" :key="product.id">
+          <div class="item">
+            <div class="first">
+              <div class="image">
+                <img :src=getImgUrl(product.image_name) alt="">
+              </div>
+              <div class="description">
+                <h3>{{ product.name }}</h3>
+                <span class="category">{{ product.category }}</span>
+                <p class="description">{{ product.description }}</p>
+              </div>
             </div>
-            <div class="description">
-              <h3>{{ product.name }}</h3>
-              <span class="category">{{ product.category }}</span>
-              <p class="description">{{ product.description }}</p>
-            </div>
-          </div>
-          <div class="second">
-            <h4><span class="price">{{ product.price }}</span> руб./{{ product.unit }}</h4>
-            <div class="counter">
-              <button class="btn btn-primary toogle minus" @click="counterMinus(index)" :disabled="product.added"><img
-                  src="@/assets/minus.svg" alt=""></button>
-              <label>{{ product.counter }}</label>
-              <button class="btn btn-primary toogle plus" @click="counterPlus(index)" :disabled="product.added"><img
-                  src="@/assets/plus.svg" alt=""></button>
-            </div>
-            <div v-if="product.added">
-              <span>Добавлено</span>
-            </div>
-            <div v-else>
-              <button class="btn btn-success pay" @click="addInCart(product.id, product.counter, index)">
-                В корзину
-              </button>
+            <div class="second">
+              <h4><span class="price">{{ product.price }}</span> руб./{{ product.unit }}</h4>
+              <div class="counter">
+                <button class="btn btn-primary toogle minus" @click="counterMinus(index)" :disabled="product.added">
+                  <img class="b_img" src="@/assets/minus.svg" alt=""></button>
+                <label>{{ product.counter }}</label>
+                <button class="btn btn-primary toogle plus" @click="counterPlus(index)" :disabled="product.added">
+                  <img class="b_img" src="@/assets/plus.svg" alt=""></button>
+              </div>
+              <div v-if="product.added">
+                <span>Добавлено</span>
+              </div>
+              <div v-else>
+                <button class="btn btn-success pay" @click="addInCart(product.id, product.counter, index)">
+                  В корзину
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -306,10 +308,13 @@ select{
   margin-top: 10px;
   width: 100%;
 }
-
+.item_wrap{
+  width: 25%;
+  display: flex;
+  justify-content: flex-start;
+}
 .item{
   background-color: white;
-  width: 23%;
   margin-right: 15px;
   border-radius: 20px;
   padding: 30px 25px;
@@ -318,7 +323,9 @@ select{
   flex-direction: column;
   justify-content: space-between;
 }
-
+.b_img{
+  width: 100%;
+}
 .image{
   display: flex;
   width: 100%;
@@ -331,6 +338,7 @@ label,.price{
 
 .toogle{
    width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -365,6 +373,9 @@ h3{
   margin: 10px 0;
 }
 
+h4{
+  margin: 10px 0;
+}
 @media (max-width: 1350px){
   h3{
     font-size: 1.3em;
@@ -378,6 +389,7 @@ h3{
   }
   h4{
     font-size: 1em;
+
   }
   h1{
     font-size: 3em;
@@ -411,9 +423,8 @@ h3{
 }
 
 @media (max-width: 1070px){
-  .item{
-    width: 30%;
-
+  .item_wrap{
+    width: 33.333%;
   }
 }
 @media (max-width: 1000px){
@@ -421,15 +432,107 @@ h3{
     font-size: 2.5em;
   }
 }
-@media (max-width: 520px){
-  h1{
-    font-size: 2em;
+
+@media (max-width: 800px){
+  h3{
+    font-size: 1.2em;
+    margin: 10px 0 5px;
+  }
+  .wrap{
+    width: 80%;
+  }
+  .toogle{
+    width: 1.8em;
+    height: 1.8em;
+    padding: 8px;
+  }
+  .pay{
+    font-size: 0.8em;
+    padding: 5px 10px;
+  }
+  .category{
+    font-size: 0.6em;
+    padding: 4px 8px;
+  }
+  .description{
+    font-size: 0.8em;
+  }
+  h4{
+    margin: 5px 0;
+  }
+
+  .item{
+    padding: 15px;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+  .catalog{
+    margin: 0 -10px 0 0;
   }
 }
 
-@media (max-width: 375px){
+@media (max-width: 580px){
   h1{
-    font-size: 1.9em;
+    font-size: 2.3em;
+  }
+  .item_wrap{
+      width: 50%;
+  }
+  h3{
+    font-size: 1.3em;
+    margin: 15px 0 10px;
+  }
+  .description{
+    font-size: 0.9em;
+  }
+  .category{
+    font-size: 0.8em;
+  }
+  h4{
+    font-size: 1em;
+
+  }
+  .select{
+    margin-top: 15px;
+  }
+
+  img{
+    width: 100%;
+
+  }
+  .toogle{
+    width: 2.1em;
+    height: 2.1em;
+  }
+  .pay{
+    margin-top:10px;
+    width: 100%;
+    font-size: 0.9em;
+  }
+  label{
+    font-size: 0.9em;
+  }
+  select{
+    font-size: 0.9em;
+  }
+
+}
+
+@media (max-width: 380px){
+  h1{
+    font-size: 2em;
+  }
+  .item_wrap{
+    width: 100%;
+  }
+  select{
+    width: 100%;
+  }
+  .image{
+    padding: 0 20px;
+  }
+  .item{
+    padding: 20px;
   }
 }
 </style>
