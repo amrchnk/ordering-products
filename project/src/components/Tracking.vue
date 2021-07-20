@@ -1,32 +1,63 @@
 <template>
   <main>
-    <div class="col-md-6 mx-auto text">
-      <h1>Отслеживание заказов</h1>
-    </div>
-    <div class="col-md-6 mx-auto mt-4">
-      <form @submit.prevent>
-        <h4 class="mb-3">Введите номер заказа</h4>
-        <div class="form-group mb-3">
-          <input class="form-control" id="number" v-model="number" required>
-        </div>
-        <div>
-          <button class="btn btn-primary btn-lg" @click="findOrder()">Найти</button>
-        </div>
-      </form>
-
-    </div>
-
-    <div class="found col-md-6 mx-auto" v-if="found">
-      <div class="d-flex flex-column mx-auto">
-        <h3 class="text-center mr-5">Заказ № {{ order.id }}</h3>
-        <p style="font-size: 1.3rem;"><span class="font-weight-bold align-self-left">Статус: </span>{{ order.status }}</p>
-        <p style="font-size: 1.3rem;"><span class="font-weight-bold">Заказчик: </span>{{ order.full_name }}</p>
-        <p style="font-size: 1.3rem;"><span class="font-weight-bold">Email: </span>{{ order.email }}</p>
-        <p style="font-size: 1.3rem;"><span class="font-weight-bold">Телефон: </span>{{ order.phone }}</p>
-        <p style="font-size: 1.3rem;"><span class="font-weight-bold">Адрес доставки: </span>{{ order.to }}</p>
-        <p style="font-size: 1.3rem;"><span class="font-weight-bold">Стоимость: </span>{{ order.cost }} руб.</p>
+    <div class="wrap">
+      <div class="text">
+        <h1>Отслеживание заказов</h1>
       </div>
     </div>
+
+    <div class="wrap">
+      <div class="container">
+        <div class="col_one_wrap">
+          <div class="col_one">
+            <h4>Введите номер заказа:</h4>
+            <input class="form-control" id="number" v-model="number" required>
+            <button class="btn btn-primary" @click="findOrder()">Найти</button>
+          </div>
+        </div>
+
+        <div class="col_two_wrap">
+          <div class="col_two">
+            <h3>Детали заказа</h3>
+            <div class="not_found" v-if="!found">
+              <div class="image">
+                <img src="@/assets/searcher.svg" alt="">
+              </div>
+              <div class="image_text">
+                <h2>Упс! <br>Пока что ничего не найдено</h2>
+              </div>
+            </div>
+            <div class="found" v-if="found">
+              <div>
+                <h3 class="order_title">Заказ № {{ order.id }}</h3>
+                <p class="order_rows"><span>Статус: </span>{{ order.status }}</p>
+                <p class="order_rows"><span>Заказчик: </span>{{ order.full_name }}</p>
+                <p class="order_rows"><span>Email: </span>{{ order.email }}</p>
+                <p class="order_rows"><span>Телефон: </span>{{ order.phone }}</p>
+                <p class="order_rows"><span>Адрес доставки: </span>{{ order.to }} <a class="order_link" href="#" @click="ShowMap"> Показать на карте</a></p>
+<!--                <div class="order_rows">-->
+<!--                  <yandex-map-->
+<!--                      :coords="coords"-->
+<!--                      :zoom="10"-->
+<!--                      @click="onClick"-->
+<!--                  >-->
+<!--                    <ymap-marker-->
+<!--                        :coords="coords"-->
+<!--                        marker-id="124"-->
+<!--                        hint-content="some hint"-->
+<!--                    />-->
+<!--                  </yandex-map>-->
+<!--                </div>-->
+                <p class="order_rows"><span>Стоимость: </span>{{ order.cost }} руб.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
 
   </main>
 </template>
@@ -48,6 +79,7 @@ export default {
         to: "",
         cost: 0
       },
+      coords:[,],
       found: false,
       address_orders: "http://localhost:5001", //drop later
       address: "http://localhost:5000"
@@ -114,6 +146,17 @@ export default {
         console.log(e);
         alert("Сервер недоступен, попробуйте позже");
       }
+    },
+    async ShowMap(){
+      try{
+        await ymaps.geocode(this.order.to).then((res) => (res.geoObjects));
+        console.log(res)
+      }
+        // await ymaps.geocode(this.order.to).then((res) => (this.coords = res.geoObjects.get(0).properties.get('text')));      }
+      catch (e) {
+        console.log(e);
+        alert(e);
+      }
     }
   }
 }
@@ -121,18 +164,107 @@ export default {
 </script>
 
 <style scoped>
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.wrap{
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .text{
-  margin-top: 30px!important;
+  width: 100%;
+  margin-top: 50px;
+}
+
+h1{
+  font-size: 3.4em;
+  font-weight: bold;
+}
+
+.col_one_wrap{
+  width: 30%;
+}
+
+.col_two_wrap{
+  width: 70%;
+}
+.col_one,.col_two{
+  background-color: white;
+  border-radius: 10px;
+}
+.col_one{
+  margin-right: 15px;
+  padding: 25px;
+}
+
+.col_two{
+ display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+.container{
+  padding: 0;
+  margin: 20px 0;
+  display: flex;
+  width: 100%;
+}
+
+h4{
+  font-size: 1.2em;
+  font-weight: 400;
+}
+
+input,button{
+margin-top: 15px;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 1.6em;
+}
+
+.not_found{
+  display: flex;
+  justify-content: center;
+}
+.image{
+  padding: 20px;
+  width: 40%;
+}
+.image_text{
+  padding: 0 40px;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  color: darkslateblue;
+  font-size: 1.2em;
+}
+img{
+  width: 100%;
+}
+.order_title{
+  font-weight: bold;
 }
 .found{
-  margin-top: 40px;
+  margin-top: 20px;
   font-family: 'Open Sans', sans-serif;
-  background: #fff;
-  padding: 30px 40px;
-  border-radius: 12px;
 }
-h3{
-  font-weight: 600;
-  font-size: 1.8rem;
+.order_rows{
+  margin: 0;
+  font-size: 1.2em;
+  margin-bottom: 8px;
 }
+
+.order_link{
+  color: #2787F5;
+  font-size: 0.8em;
+}
+
 </style>

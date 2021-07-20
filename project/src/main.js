@@ -7,7 +7,6 @@ import Priviege from './components/Privilege.vue'
 import Main from './components/Main.vue'
 import Autho from './components/Autho.vue'
 import Catalog from './components/Catalog.vue'
-import About from './components/About.vue'
 import Reg from './components/Reg.vue'
 import Plug from './components/plug.vue'
 import Basket from './components/Basket.vue'
@@ -24,7 +23,7 @@ Vue.config.productionTip = false
 Vue.use(VueRouter)
 
 const settings = {
-	apiKey: '07470f42-c422-40e8-b6b2-0d20f1866092',
+	apiKey: '07470f42-pnc422-40e8-b6b2-0d20f1866092',
 	lang: 'ru_RU',
 	coordorder: 'latlong',
 	version: '2.1'
@@ -36,7 +35,6 @@ Vue.use(YmapPlugin, settings)
 const router=new VueRouter({
 	mode:'history',
 	routes:[
-		{path:'/about',component:About},
 		{path:'/userPage',component:UserPage},
 		{path:'/orders',component:Orders},
 		{path:'/create',component:CreateOrder},

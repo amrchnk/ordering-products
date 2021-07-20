@@ -51,16 +51,10 @@ main{
   align-items: center;
 }
 
-.image{
-	width: 35%;
-}
 img{
 	width: 100%;
 }
 
-.btn{
-	padding: 6px 25px;
-}
 h1{
 	font-size: 3.4em;
 	font-weight: bold;
