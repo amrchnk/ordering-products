@@ -34,6 +34,7 @@
                 <p class="order_rows"><span>Заказчик: </span>{{ order.full_name }}</p>
                 <p class="order_rows"><span>Email: </span>{{ order.email }}</p>
                 <p class="order_rows"><span>Телефон: </span>{{ order.phone }}</p>
+                <p class="order_rows"><span>Стоимость: </span>{{ order.cost }} руб.</p>
                 <p class="order_rows"><span>Адрес доставки: </span>{{ order.to }} <a class="order_link" href="#" @click="ShowMap"> Показать на карте</a></p>
 <!--                <div class="order_rows">-->
 <!--                  <yandex-map-->
@@ -48,7 +49,7 @@
 <!--                    />-->
 <!--                  </yandex-map>-->
 <!--                </div>-->
-                <p class="order_rows"><span>Стоимость: </span>{{ order.cost }} руб.</p>
+
               </div>
             </div>
           </div>
@@ -64,9 +65,15 @@
 
 <script>
 import Main from "@/components/Main";
+import { yandexMap, ymapMarker } from 'vue-yandex-maps';
+import PayError from "@/components/PaymentOrderError";
+
 export default {
   name: "tracking",
-  components: {Main},
+  components: {Main,
+  yandexMap,
+  ymapMarker
+  },
   data() {
     return {
       number: "",
@@ -148,15 +155,15 @@ export default {
       }
     },
     async ShowMap(){
-      try{
+      // try{
         await ymaps.geocode(this.order.to).then((res) => (res.geoObjects));
         console.log(res)
-      }
-        // await ymaps.geocode(this.order.to).then((res) => (this.coords = res.geoObjects.get(0).properties.get('text')));      }
-      catch (e) {
-        console.log(e);
-        alert(e);
-      }
+      // }
+      //   // await ymaps.geocode(this.order.to).then((res) => (this.coords = res.geoObjects.get(0).properties.get('text')));      }
+      // catch (e) {
+      //   console.log(e);
+      //   alert(e);
+      // }
     }
   }
 }
@@ -267,4 +274,107 @@ img{
   font-size: 0.8em;
 }
 
+@media (max-width: 1350px){
+  h1{
+    font-size: 3em;
+  }
+  h2{
+    font-size: 1.8em;
+  }
+  .image_text{
+     padding: 0 30px;
+   }
+}
+
+@media (max-width: 1280px){
+h4{
+  font-size: 1em;
+}
+  h2{
+    font-size: 1.6em;
+  }
+h3{
+  font-size: 1.3em;
+}
+input,button{
+  font-size: 0.8em;
+}
+  .image_text{
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 1080px){
+  h1{
+    font-size: 2.5em;
+  }
+  h2{
+    font-size: 1.4em;
+  }
+  input,button{
+    font-size: 0.7em;
+  }
+  .image_text{
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 980px) {
+.container{
+  flex-direction: column;
+}
+  .col_one_wrap,.col_two_wrap{
+    width: 100%;
+  }
+  .col_one_wrap{
+    margin-bottom: 15px;
+  }
+  .col_one{
+    margin-right: 0;
+  }
+  h4{
+    font-size: 1em;
+  }
+  h2{
+    font-size: 1.6em;
+  }
+  h3{
+    font-size: 1.3em;
+  }
+  input,button{
+    font-size: 0.8em;
+  }
+  .image_text{
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  h2{
+    font-size: 1.3em;
+  }
+  .image_text{
+    padding: 0 10px;
+  }
+  h3{
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.3em;
+  }
+  .not_found{
+    flex-direction: column;
+  }
+
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: 2em;
+  }
+
+}
 </style>

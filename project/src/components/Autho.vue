@@ -78,7 +78,7 @@ export default {
             document.cookie = `password=${this.user.password}`;
             document.cookie = `full_name=${this.user.full_name}`;
             document.cookie = `phone_num=${this.user.phone}`;
-            await this.$router.push('/userPage');
+            await this.$router.push('/');
           } else {
             alert(this.user.error);
           }

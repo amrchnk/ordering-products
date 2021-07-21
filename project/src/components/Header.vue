@@ -5,11 +5,11 @@
 
       <ul class="links justify-content-center">
         <li>
-          <router-link class="nav-link" to="/" v-if="!email">Главная</router-link>
+          <router-link class="nav-link" to="/">Главная</router-link>
         </li>
-        <li>
-          <router-link class="nav-link" to="/userPage" v-if="email">Главная</router-link>
-        </li>
+<!--        <li>-->
+<!--          <router-link class="nav-link" to="/userPage" v-if="email">Главная</router-link>-->
+<!--        </li>-->
         <li>
           <router-link class="nav-link" to="/catalog">Каталог</router-link>
         </li>
