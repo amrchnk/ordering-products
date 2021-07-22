@@ -3,7 +3,6 @@ import App from './App.vue'
 import UserPage from './components/UserPage.vue'
 import Orders from './components/Orders.vue'
 import CreateOrder from './components/CreateOrder.vue'
-import Priviege from './components/Privilege.vue'
 import Main from './components/Main.vue'
 import Autho from './components/Autho.vue'
 import Catalog from './components/Catalog.vue'
@@ -38,7 +37,6 @@ const router=new VueRouter({
 		{path:'/userPage',component:UserPage},
 		{path:'/orders',component:Orders},
 		{path:'/create',component:CreateOrder},
-		{path:'/privilege',component:Priviege},
 		{path:'/reg',component:Reg},
 		{path:'/autho',component:Autho},
 		{path:'/',component:Main},

@@ -1,43 +1,54 @@
 <template>
 <main>
-  <div class="wrap text">
-    <div class="wrap-in">
+  <div class="wrap">
+    <div class="text">
       <h1>Корзина</h1>
     </div>
   </div>
-  <div class="wrap order-items">
-    <div class="items">
-      <div class="item" v-for="(product, index) in products" :key="product.id">
-
-        <div class="image">
-          <img :src=getImgUrl(product.image_name) alt="">
-        </div>
-        <div class="description">
-          <h6>{{ product.name }}</h6>
-          <h7>{{ product.category }}</h7>
-          <h7>{{ product.description }}</h7>
-          <div class="counter">
-            <button class="btn btn-primary toogle minus" @click="counterMinus(index)">-</button>
-            <label>{{ product.counter }}</label>
-            <button class="btn btn-primary toogle plus" @click="counterPlus(index)">+</button>
+  <div class="wrap">
+    <div class="container">
+      <div class="left_wrap">
+        <div class="left">
+          <div class="total">
+            <h2>Итого</h2>
+            <hr>
           </div>
-          <p class="price"><b>Цена:</b> {{ product.price }} руб./{{ product.unit }}</p>
-          <p><b>Итого:</b> {{ product.total }} руб.</p>
+          <h3>К оплате: <span class="num">{{ amount }}</span> руб.</h3>
+          <button class="btn btn-success pay">
+            <router-link to="/custdata">Оплатить</router-link>
+          </button>
         </div>
+      </div>
 
+      <div class="items">
+        <div class="item_wrap" v-for="(product, index) in products" :key="product.id">
+          <div class="item">
+            <div class="image">
+              <img :src=getImgUrl(product.image_name) alt="">
+            </div>
+            <div class="description">
+              <h6>{{ product.name }}</h6>
+              <span class="category">{{ product.category }}</span>
+              <h7>{{ product.description }}</h7>
+              <div class="counter">
+                <button class="btn btn-primary toogle minus" @click="counterMinus(index)">
+                  <img class="b_img" src="@/assets/minus.svg" alt="">
+                </button>
+                <label class="num">{{ product.counter }}</label>
+                <button class="btn btn-primary toogle plus" @click="counterPlus(index)">
+                  <img class="b_img" src="@/assets/plus.svg" alt="">
+                </button>
+              </div>
+              <p class="price"><b>Цена:</b> <span class="num">{{ product.price }}</span> руб./{{ product.unit }}</p>
+              <p class="price"><b>Итого:</b> <span class="num">{{ product.total }}</span> руб.</p>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
-  <div class="wrap total">
-    <div class="total_inner">
-      <div class="text">
-        <h2>К оплате: {{ amount }} руб.</h2>
-      </div>
-      <button class="btn btn-success pay">
-        <router-link to="/custdata">Заказать</router-link>
-      </button>
-    </div>
-  </div>
+
 </main>
 </template>
 
@@ -285,78 +296,251 @@ export default {
 </script>
 
 <style scoped>
-  main{
-    margin-top: 60px;
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.wrap{
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text{
+  width: 100%;
+  margin-top: 50px;
+}
+h1{
+  font-size: 3.4em;
+  font-weight: bold;
+  color: white;
+}
+
+.container{
+  display: flex;
+  width: 100%;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.item,.left{
+  background-color: white;
+  border-radius: 10px;
+}
+.left_wrap{
+  width: 35%;
+}
+.items{
+  width: 65%;
+}
+.left{
+  margin-right: 15px;
+  padding: 20px;
+}
+.item{
+  display: flex;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+.image{
+  width: 30%;
+  padding: 10px;
+}
+.description{
+  padding: 10px;
+}
+h6{
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #184655;
+}
+.category{
+  background-color: #FFFDC5;
+  color: #5B5B5E;
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 4px 10px;
+  font-size: 0.9em;
+}
+
+.counter{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+.toogle{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 12px;
+}
+.b_img{
+  width: 100%;
+}
+.num{
+  font-family: 'Open Sans', sans-serif;
+}
+p{
+  margin-bottom: 10px;
+}
+.price{
+  font-size: 1.2em;
+}
+
+h2{
+  font-weight: 400;
+}
+h3{
+  margin: 15px 0;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+.pay{
+  color: white;
+  font-size: 1.2em;
+  margin-top: 5px;
+}
+img{
+  width: 100%;
+}
+
+@media (max-width: 1700px){
+  .image{
+    width: 40%;
   }
-  h1{
-    text-align: center;
-    color: white;
+}
+
+@media (max-width: 1350px) {
+  h1 {
+    font-size: 3em;
+  }
+  .image{
+    width: 45%;
+  }
+  h2{
+    font-size: 1.8em;
+  }
+}
+
+@media (max-width: 1100px) {
+  h1 {
+    font-size: 2.5em;
+  }
+  h2{
+    font-size: 1.5em;
+  }
+  h3{
+    font-size: 1.2em;
+    margin: 12px 0;
   }
   h6{
     font-size: 1.4em;
-    font-weight: bold;
-    color: #184655;
-  }
-  .pay{
-    margin:0;
-    width: 120px;
-  }
-  h2{
-    margin:0
-  }
-  .total_inner{
-    background-color: white;
-    width: 60%;
-    padding: 15px 40px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .total{
-    margin-top: 30px;
-  }
-p{
-  font-size: 1.1em;
-  margin: 0;
-}
-a{
-  color: white;
-}
-.price{
-  margin-bottom: 10px;
-}
-  h7{
-    font-size: 1em;
-    color: gray;
-    margin-top: 20px;
-  }
-  .image{
-    width: 200px;
   }
   .toogle{
-    width: 40px;
-    text-align: center;
-    margin: 0;
+    width: 1.8em;
+    height: 1.8em;
+    padding: 8px;
   }
-  .item{
-    padding: 30px 90px;
-    display: flex;
-    background-color: white;
-    margin-top: 30px;
+  .price{
+    font-size: 1em;
   }
-  .items{
-    width: 60%;
+  p{
+    margin-bottom: 5px;
+  }
+  .category{
+    margin: 5px 0;
+    padding: 4px 8px;
+    font-size: 0.8em;
   }
   .counter{
-    display: flex;
-    width: 150px;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px 0;
+    margin: 10px 0;
+  }
+  .pay{
+    font-size: 1em;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 980px) {
+  .container{
+    flex-direction: column-reverse;
+  }
+  .left_wrap,.items{
+    width: 100%;
+  }
+  .left{
+    margin: 0;
+  }
+  .image{
+    width: 35%;
+  }
+}
+
+@media (max-width: 800px){
+  .image{
+    width: 43%;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.3em;
+  }
+  .image{
+    width: 50%;
+  }
+
+}
+@media (max-width: 490px) {
+  .wrap {
+    width: 80%;
+  }
+  h2{
+    font-size: 1.3em;
+  }
+  h3{
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  h6{
+    font-size: 1em;
+  }
+  .price{
+    font-size: 0.8em;
+  }
+  label{
+    font-size: 0.8em;
+  }
+  .toogle{
+    width: 1.6em;
+    height: 1.6em;
+    padding: 8px;
   }
   .description{
-    margin-left: 100px;
+    padding: 10px 0;
   }
-  .order-items{
-    font-family: 'Open Sans', sans-serif;
+}
+@media (max-width: 390px) {
+  h1 {
+    font-size: 1.8em;
   }
+  h2{
+    font-size: 1.1em;
+  }
+  h3{
+    font-size: 1em;
+    margin: 8px 0;
+  }
+}
+
+
 </style>

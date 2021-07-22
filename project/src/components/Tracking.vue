@@ -30,26 +30,12 @@
             <div class="found" v-if="found">
               <div>
                 <h3 class="order_title">Заказ № {{ order.id }}</h3>
-                <p class="order_rows"><span>Статус: </span>{{ order.status }}</p>
-                <p class="order_rows"><span>Заказчик: </span>{{ order.full_name }}</p>
-                <p class="order_rows"><span>Email: </span>{{ order.email }}</p>
-                <p class="order_rows"><span>Телефон: </span>{{ order.phone }}</p>
-                <p class="order_rows"><span>Стоимость: </span>{{ order.cost }} руб.</p>
-                <p class="order_rows"><span>Адрес доставки: </span>{{ order.to }} <a class="order_link" href="#" @click="ShowMap"> Показать на карте</a></p>
-<!--                <div class="order_rows">-->
-<!--                  <yandex-map-->
-<!--                      :coords="coords"-->
-<!--                      :zoom="10"-->
-<!--                      @click="onClick"-->
-<!--                  >-->
-<!--                    <ymap-marker-->
-<!--                        :coords="coords"-->
-<!--                        marker-id="124"-->
-<!--                        hint-content="some hint"-->
-<!--                    />-->
-<!--                  </yandex-map>-->
-<!--                </div>-->
-
+                <p class="order_rows"><span class="marker">Статус: </span>{{ order.status }}</p>
+                <p class="order_rows"><span class="marker">Заказчик: </span>{{ order.full_name }}</p>
+                <p class="order_rows"><span class="marker">Email: </span>{{ order.email }}</p>
+                <p class="order_rows"><span class="marker">Телефон: </span>{{ order.phone }}</p>
+                <p class="order_rows"><span class="marker">Стоимость: </span>{{ order.cost }} руб.</p>
+                <p class="order_rows"><span class="marker">Адрес доставки: </span>{{ order.to }} </p>
               </div>
             </div>
           </div>
@@ -258,6 +244,8 @@ img{
 }
 .order_title{
   font-weight: bold;
+  margin-bottom: 12px;
+  font-size: 1.3em;
 }
 .found{
   margin-top: 20px;
@@ -266,12 +254,10 @@ img{
 .order_rows{
   margin: 0;
   font-size: 1.2em;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
-
-.order_link{
-  color: #2787F5;
-  font-size: 0.8em;
+.marker{
+  font-weight: 600;
 }
 
 @media (max-width: 1350px){
@@ -357,6 +343,12 @@ input,button{
     padding: 0 10px;
   }
   h3{
+    font-size: 1.3em;
+  }
+  .order_title{
+    font-size: 1.2em;
+  }
+  .order_rows{
     font-size: 1.1em;
   }
 }
@@ -367,14 +359,42 @@ input,button{
   }
   .not_found{
     flex-direction: column;
+    align-items: center;
   }
-
+  .image_text{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  h2{
+    font-size: 1em;
+  }
+  .image{
+    width: 60%;
+    justify-content: center;
+  }
 }
 
-@media (max-width: 380px) {
-  h1 {
-    font-size: 2em;
+@media (max-width: 490px) {
+  .wrap{
+    width: 80%;
   }
+}
+
+@media (max-width: 390px) {
+  h1 {
+    font-size: 1.8em;
+  }
+  h2{
+    font-size: 0.8em;
+  }
+  .image{
+    width: 80%;
+    justify-content: center;
+  }
+
 
 }
 </style>
