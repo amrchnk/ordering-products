@@ -1,39 +1,44 @@
 <template>
-	<div class="main">
-		<h2 class="auth-h2">Для совершения заказов на нашем сайте, вам необходимо войти в систему</h2>
-		<div class="auth-form">
-			<div class="fields">
-				<div class="auth-field">
-					<label class="form-label">Логин</label>
-					<input class="form-control" id="exampleInputEmail1" v-model="user.email">
-				</div>
+	<main>
+		<h2 class="h2">Для совершения заказов на нашем сайте, вам необходимо войти в систему</h2>
+    <div class="wrap">
+      <div class="form_wrap">
+        <div class="form">
+          <div class="fields">
+            <div class="field">
+              <label class="form-label">Логин</label>
+              <input class="form-control" id="exampleInputEmail1" v-model="user.email">
+            </div>
 
-				<div class="auth-field">
-					<label class="form-label">Пароль</label>
-					<input class="form-control" id="exampleInputPassword" v-model="user.password" type="password">
-				</div>
-				<div class="others">
-					<button class="btn btn-primary" @click="login">Войти</button>
-					<router-link class="rl link" to="/reg">У меня нет аккаунта</router-link>
-				</div>
+            <div class="field">
+              <label class="form-label">Пароль</label>
+              <input class="form-control" id="exampleInputPassword" v-model="user.password" type="password">
+            </div>
+            <div class="others">
+              <button class="btn btn-primary" @click="login">Войти</button>
+              <router-link class="rl link" to="/reg">У меня нет аккаунта</router-link>
+            </div>
 
-				<div class="auth-field">
-					<label class="form-label">Войти с помощью</label>
-					<div class="social">
-						<button class="ico vk" @click="ShowMSG">
-							<img class="imic" src="@/assets/vk.svg">
-						</button>
-						<button class="ico fb">
-							<img class="imich" src="@/assets/fb.svg">
-						</button>
-						<button class="ico od">
-							<img class="imich" src="@/assets/ok.svg">
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            <div class="field social">
+              <label class="form-label">Войти с помощью</label>
+              <div class="social-inner">
+                <button class="ico vk" @click="ShowMSG">
+                  <img class="imic" src="@/assets/vk.svg">
+                </button>
+                <button class="ico fb">
+                  <img class="imich" src="@/assets/fb.svg">
+                </button>
+                <button class="ico od">
+                  <img class="imich" src="@/assets/ok.svg">
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+	</main>
 
 </template>
 
@@ -100,30 +105,39 @@ export default {
 </script>
 
 <style scoped>
-.auth-h2{
-	margin-top: 70px;
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrap{
+  width: 34em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h2{
+	margin-top: 50px;
 	font-weight: 400;
 	text-align: center;
 	font-size: 1.5em;
-	margin-bottom:20px;
 }
 
-.auth-form{
-	background-color: white;
-	width: 30%;
-	border-radius: 10px;
-	border: 0.5px solid #E5E5E5;
-	margin: auto auto !important;
+.form_wrap{
+  width: 100%;
 }
-
-.main{
-align-items: center
+.form{
+  background-color: white;
+  border-radius: 10px;
+  border: 0.5px solid #E5E5E5;
+  margin-top: 30px;
 }
 
 .fields{
 	padding: 35px 60px
 }
-.auth-field{
+.field{
 	width:100%;
 	margin-bottom: 25px;
       clear:both;
@@ -134,11 +148,15 @@ align-items: center
 	display: flex !important;
 	align-items: center!important;
 	justify-content: space-between;
-	margin-bottom: 25px;
+	margin-bottom: 20px;
 }
-.auth-link{
+.link{
 	text-decoration: none;
 	margin-left: 20px;
+}
+
+.social{
+  margin-bottom: 10px!important;
 }
 
 .vk{
@@ -161,7 +179,6 @@ align-items: center
 	width: 50px;
 	height: 50px;
 	border: none;
-
 }
 .imic{
 	width: 30px;
@@ -171,8 +188,82 @@ align-items: center
 	height: 30px;
 }
 
-.social{
+.social-inner{
 	display: flex;
 	align-items: center;
+}
+
+@media (max-width: 1350px) {
+  .wrap {
+    width: 32em;
+  }
+  .fields{
+    padding: 30px 50px
+  }
+}
+
+@media (max-width: 1100px) {
+  .field,input{
+    font-size: 0.9em;
+  }
+  h2{
+    margin-bottom: 0;
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 770px) {
+  h2{
+    width: 70%;
+  }
+}
+
+@media (max-width: 580px) {
+  h2{
+    width: 80%;
+  }
+  .wrap {
+    width: 26em;
+  }
+  .fields{
+    padding: 30px 40px
+  }
+  .ico{
+    width: 40px;
+    height: 40px;
+  }
+  .imic{
+    width: 20px;
+  }
+
+  .imich{
+    height: 20px;
+  }
+}
+
+@media (max-width: 460px) {
+  h2{
+   font-size: 1em;
+  }
+  .wrap {
+    width: 24em;
+  }
+  .btn,.others{
+    font-size: 0.9em;
+  }
+}
+@media (max-width: 400px) {
+  h2{
+    width: 90%;
+  }
+  .wrap{
+    width: 100%;
+  }
+  .form{
+    border-radius: 0px;
+  }
+  .fields{
+    padding: 20px 30px
+  }
 }
 </style>

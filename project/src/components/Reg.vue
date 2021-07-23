@@ -237,6 +237,7 @@ h2{
 @media (max-width: 400px) {
   h2{
     padding: 0 10px;
+    font-size: 0.9em;
   }
   .wrap{
     width: 100%;

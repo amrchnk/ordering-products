@@ -41,11 +41,23 @@
       <workItem from="1626593072215" duration="31850000" />
       <workItem from="1626776516440" duration="12343000" />
       <workItem from="1626793132863" duration="770000" />
-      <workItem from="1626858707505" duration="37019000" />
+      <workItem from="1626858707505" duration="41440000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/project/src/components/Autho.vue</url>
+          <line>1</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
