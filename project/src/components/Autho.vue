@@ -60,7 +60,6 @@ export default {
       alert(this.email)
     },
     async login() { // По нажатию на кнопку "Войти"
-      //alert(this.user.email)
       if (this.user.email.length > 0 && this.user.password.length > 0) {// Проверяем, чтобы поля логина и пароля не были пустыми
         try {
           let request = { //тело запроса на бэк
@@ -100,7 +99,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .auth-h2{
 	margin-top: 70px;
 	font-weight: 400;
