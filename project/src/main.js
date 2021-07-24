@@ -10,12 +10,14 @@ import Tracking from "@/components/Tracking.vue";
 import Settings from "@/components/Settings.vue";
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
-import YmapPlugin from 'vue-yandex-maps'
 import PaymentOrderLoad from "@/components/PaymentOrderLoad.vue";
+
 
 Vue.use(VueResource)
 Vue.config.productionTip = false
 Vue.use(VueRouter)
+
+
 
 const settings = {
 	apiKey: '07470f42-pnc422-40e8-b6b2-0d20f1866092',
@@ -24,7 +26,10 @@ const settings = {
 	version: '2.1'
 }
 
+import YmapPlugin from 'vue-yandex-maps';
+
 Vue.use(YmapPlugin, settings)
+
 
 
 const router=new VueRouter({

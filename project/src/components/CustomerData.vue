@@ -1,10 +1,5 @@
 <template>
   <main>
-<!--    <div>-->
-<!--      <PaySuccess v-if="visible && payed && !error" @closeModal="closeModal" ref="PaySuccess"/>-->
-<!--      <PayError v-if="visible && !payed && error" @closeModal="closeModal" ref="PayError"/>-->
-<!--    </div>-->
-
     <div class="wrap">
       <div class="breadcrumb">
         <router-link to="/basket" class="rl"><b>Корзина</b></router-link>
@@ -45,7 +40,7 @@
             <div class="address">
               <h2>Адрес доставки</h2>
               <hr>
-              <input :disabled="visible" type="text" class="form-control" id="address" placeholder="Введите ваш адрес" v-model="newOrder.to" required>
+              <input :disabled="visible" type="text" class="form-control input" id="address" placeholder="Введите ваш адрес" v-model="newOrder.to" required>
               <div class="ymap-container">
                 <yandex-map
                     :coords="coords"
@@ -61,12 +56,15 @@
               </div>
             </div>
 
-            <div class="custom-control custom-checkbox">
-              <input :disabled="visible" type="checkbox" class="custom-control-input" id="finish-text" v-model="checkedConfirm">
+            <div class="checkbox">
+              <input :disabled="visible" type="checkbox" id="finish-text"  class="checkbox-inner" v-model="checkedConfirm">
               <label class="custom-control-label" for="finish-text">Я даю согласие на обработку персональных данных</label>
             </div>
-            <button class="btn btn-success btn-block" :disabled="!checkedConfirm || visible" @click="saveNewOrder()">Оплатить заказ</button>
-            <button class="btn btn-danger btn-block" :disabled="visible" @click="clearForm()">Очистить форму</button>
+            <div class="btns">
+              <button class="btn btn-success btn-block" :disabled="!checkedConfirm || visible" @click="saveNewOrder()">Оплатить заказ</button>
+              <button class="btn btn-danger btn-block" :disabled="visible" @click="clearForm()">Очистить форму</button>
+            </div>
+
           </form>
         </div>
       </div>
@@ -75,15 +73,9 @@
 </template>
 
 <script>
-import PaySuccess from './PaymentOrderSuccess.vue';
-import PayError from './PaymentOrderError.vue';
-
-
   export default {
     name: "neworder",
     components: {
-      PaySuccess,
-      PayError
     },
     data() {
       return {
@@ -237,7 +229,7 @@ h2{
 .form,.address{
   width: 100%;
 }
-input{
+.input{
   margin-top: 30px;
 }
 
@@ -247,9 +239,7 @@ input{
 .btn{
   margin-top: 15px;
 }
-.btn-danger{
-  margin-left: 10px;
-}
+
 .strs{
   display: flex;
   flex-direction: column;
@@ -292,5 +282,107 @@ b{
 .num{
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
+}
+.checkbox{
+  display: flex;
+  align-items: center;
+}
+.checkbox-inner{
+  margin: 0;
+}
+.btns{
+  display: flex;
+  justify-content: flex-start;
+}
+.btn-success{
+  margin-right: 10px;
+}
+@media (max-width: 1350px) {
+  h1 {
+    font-size: 3em;
+  }
+  h2 {
+    font-size: 1.8em;
+  }
+  h5{
+     font-size: 1.1em;
+   }
+}
+@media (max-width: 1080px) {
+  h1 {
+    font-size: 2.5em;
+  }
+  h2 {
+    font-size: 1.4em;
+  }
+}
+@media (max-width: 720px) {
+  .custom-control-label,.btn{
+    font-size: 0.9em;
+  }
+  .container{
+    padding: 30px;
+  }
+}
+
+@media (max-width: 630px) {
+  h1 {
+    font-size: 2.3em;
+  }
+  h2{
+    font-size: 1em;
+  }
+  .custom-control-label{
+    font-size: 0.75em;
+  }
+  hr{
+    margin:8px 0;
+  }
+}
+@media (max-width: 520px) {
+  .wrap{
+    width: 80%;
+  }
+  .btn{
+    font-size: 0.8em;
+  }
+  h5{
+    font-size: 0.9em;
+  }
+  .str{
+    margin-top: 8px;
+  }
+  .address{
+    margin-top: 20px;
+  }
+  .input{
+    font-size: 0.8em;
+    margin-top: 10px;
+  }
+  .strs{
+    width: 12em;
+  }
+}
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1.8em;
+  }
+  .custom-control-label{
+    font-size: 0.7em;
+  }
+  .btn-success{
+    margin-right: 0px;
+  }
+  .btns{
+    flex-direction: column;
+    margin-top: 7px;
+  }
+  .btn{
+    width: 100%;
+    margin-top: 8px;
+  }
+  .strs{
+    width: 10em;
+  }
 }
 </style>

@@ -1,38 +1,44 @@
 <template>
 <main>
   <div class="wrap">
-    <div class="wrap_body">
       <div class="text">
         <h1>Настройки</h1>
       </div>
       <div class="user_data">
         <div class="line">
-          <label class="pre">Имя пользователя:</label>
-          <label v-if="!editMode">{{this.full_name}}</label>
-          <input type="text" v-if="editMode" v-model="user.full_name">
+          <div class="lbls">
+            <label class="pre">Имя пользователя:</label>
+            <label v-if="!editMode">{{this.full_name}}</label>
+            <input type="text" v-if="editMode" v-model="user.full_name">
+          </div>
           <a class="nav-link" href="#" v-if="!editMode" @click="includeEdit">Изменить</a>
         </div>
         <div class="line">
-          <label class="pre">Электропочта:</label>
-          <label v-if="!editMode">{{ this.email }}</label>
-          <input type="text" v-if="editMode" v-model="user.email">
+          <div class="lbls">
+            <label class="pre">Электропочта:</label>
+            <label v-if="!editMode">{{ this.email }}</label>
+            <input type="text" v-if="editMode" v-model="user.email">
+          </div>
           <a class="nav-link" href="#" v-if="!editMode" @click="includeEdit">Изменить</a>
         </div>
         <div class="line">
-          <label class="pre">Пароль:</label>
-          <label v-if="!editMode">{{this.password}}</label>
-          <input type="text" v-if="editMode" v-model="user.password">
+          <div class="lbls">
+            <label class="pre">Пароль:</label>
+            <label v-if="!editMode">{{this.password}}</label>
+            <input type="text" v-if="editMode" v-model="user.password">
+          </div>
           <a class="nav-link" href="#" v-if="!editMode" @click="includeEdit">Изменить</a>
         </div>
         <div class="line">
-          <label class="pre">Номер телефона:</label>
-          <label v-if="!editMode">{{this.phone_num}}</label>
-          <input type="text" v-if="editMode" v-model="user.phone">
+          <div class="lbls">
+            <label class="pre">Номер телефона:</label>
+            <label v-if="!editMode" class="num">{{this.phone_num}}</label>
+            <input class="num" type="text" v-if="editMode" v-model="user.phone">
+          </div>
           <a class="nav-link" href="#" v-if="!editMode" @click="includeEdit">Изменить</a>
         </div>
       </div>
       <button class="btn btn-primary" v-if="editMode" @click="Update">Сохранить</button>
-    </div>
   </div>
 </main>
 </template>
@@ -106,30 +112,40 @@ name: "UserProfile",
 </script>
 
 <style scoped>
-.wrap_body{
-  width: 80%;
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.wrap{
+  width: 70%;
   background-color: white;
   border-radius: 15px;
   margin-top: 30px;
-  padding: 50px 60px 45px;
+  padding: 40px;
+}
+h1{
+  font-size: 2.7em;
+  font-weight: bold;
 }
 input{
   margin-bottom: 15px;
 }
-.user_data{
+.num{
   font-family: "Open Sans", sans-serif;
-  margin-top: 20px;
 }
 .line{
   display: flex;
+  width: 25em;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 label{
   font-size: 1.2em;
-  margin-bottom: 15px;
 }
 .pre{
   font-weight: 600;
-  margin-right: 20px;
 }
 button{
   width: 180px;
@@ -141,5 +157,62 @@ a{
   padding: 0;
   margin-left: 30px;
   color: #2787F5;
+}
+.user_data{
+  margin-top: 20px;
+  width: 100%;
+}
+.lbls{
+  display: flex;
+  width: 16em;
+  justify-content: space-between;
+}
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: 2.5em;
+  }
+  .wrap{
+    width: 80%;
+  }
+}
+
+@media (max-width: 580px) {
+  .wrap{
+    padding: 40px 30px;
+  }
+  h1 {
+    font-size: 2.3em;
+  }
+  .line{
+    width: 100%;
+  }
+  .lbls{
+    width: 15em;
+    font-size: 0.9em;
+  }
+  .nav-link{
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 490px) {
+  .wrap{
+    width: 100%;
+    border-radius: 0px;
+  }
+}
+
+@media (max-width: 390px) {
+  .lbls{
+    font-size: 0.8em;
+    align-items: center;
+  }
+  .nav-link{
+    font-size: 0.8em;
+  }
+  .line{
+    align-items: center;
+  }
 }
 </style>
