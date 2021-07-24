@@ -181,6 +181,10 @@ h1{
   font-weight: bold;
 }
 
+h2{
+  font-weight: bold;
+}
+
 .col_one_wrap{
   width: 30%;
 }

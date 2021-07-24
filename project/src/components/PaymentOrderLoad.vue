@@ -1,8 +1,11 @@
 <template>
-  <div class="d-flex flex-column justify-content-center align-items-center">
-    <h2>Перенаправление в онлайн-банк</h2>
-    <h5>Пожалуйста, подождите...</h5>
-  </div>
+  <main>
+    <div class="wrap">
+      <h2>Перенаправление в онлайн-банк</h2>
+      <h5>Пожалуйста, подождите...</h5>
+    </div>
+  </main>
+
 </template>
 
 <script>
@@ -75,5 +78,26 @@ export default {
     await this.addPayment();
   }
 }
-
 </script>
+<style scoped>
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.wrap{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h2{
+  text-align: center;
+  margin-top: 50px;
+}
+h5{
+  margin-top: 30px;
+}
+</style>

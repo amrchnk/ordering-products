@@ -1,74 +1,77 @@
 <template>
-  <div>
-    <div>
-      <PaySuccess v-if="visible && payed && !error" @closeModal="closeModal" ref="PaySuccess"/>
-      <PayError v-if="visible && !payed && error" @closeModal="closeModal" ref="PayError"/>
-    </div>
-    <div class="col-md-8 mx-auto">
-      <nav aria-label="breadcrumb" class="wrap-in">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item base"><router-link to="/basket">Корзина</router-link></li>
-          <li class="breadcrumb-item cur">Оплата</li>
-        </ol>
-      </nav>
-    </div>
-    <h1 class="text-center">Новый заказ</h1>
+  <main>
+<!--    <div>-->
+<!--      <PaySuccess v-if="visible && payed && !error" @closeModal="closeModal" ref="PaySuccess"/>-->
+<!--      <PayError v-if="visible && !payed && error" @closeModal="closeModal" ref="PayError"/>-->
+<!--    </div>-->
 
-    <div class="row mx-0">
-
-      <div class="col-md-8 mx-auto">
-
-        <form @submit.prevent :disabled="visible">
-          <h2>Заказчик</h2>
-          <div class="row">
-            <div class="col-md-6 str" >
-              <h5>ФИО</h5>
-              <h5 class="dop">{{ newOrder.full_name }}</h5>
-            </div>
-            <div class="col-md-6 str">
-              <h5>Email</h5>
-              <h5 class="dop">{{ newOrder.email }}</h5>
-            </div>
-
-            <div class="col-md-6 str">
-              <h5>Телефон</h5>
-              <h5 class="dop">{{ newOrder.phone }}</h5>
-            </div>
-          </div>
-
-          <hr class="mb-4">
-
-          <h2>Адрес доставки</h2>
-          <div class="mb-3 mt-3 form-group">
-            <input :disabled="visible" type="text" class="form-control" id="address" placeholder="Введите ваш адрес" v-model="newOrder.to" required>
-          </div>
-          <div>
-            <yandex-map
-                :coords="coords"
-                :zoom="10"
-                @click="onClick"
-            >
-              <ymap-marker
-                  :coords="coords"
-                  marker-id="124"
-                  hint-content="some hint"
-              />
-            </yandex-map>
-          </div>
-
-          <hr class="mb-4">
-          <div class="custom-control custom-checkbox mb-4">
-            <input :disabled="visible" type="checkbox" class="custom-control-input" id="finish-text" v-model="checkedConfirm">
-            <label class="custom-control-label" for="finish-text" style="font-size: 1rem;">Я даю согласие на обработку персональных данных</label>
-          </div>
-          <button class="btn btn-success btn-lg btn-block" :disabled="!checkedConfirm || visible" @click="saveNewOrder()">Оплатить заказ</button>
-          <button class="btn btn-danger btn-lg btn-block" :disabled="visible" @click="clearForm()">Очистить форму</button>
-        </form>
-
+    <div class="wrap">
+      <div class="breadcrumb">
+        <router-link to="/basket" class="rl"><b>Корзина</b></router-link>
+        <p class="slash">/</p>
+        <p>Новый заказ</p>
       </div>
-
     </div>
-  </div>
+    <div class="wrap">
+      <div class="text">
+        <h1>Новый заказ</h1>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="container">
+        <div class="form">
+          <form @submit.prevent :disabled="visible">
+            <div class="customer">
+              <h2>Заказчик</h2>
+              <hr>
+              <div class="strs">
+                <div class="str">
+                  <h5 class="marked">ФИО</h5>
+                  <h5>{{ newOrder.full_name }}</h5>
+                </div>
+                <div class="str">
+                  <h5 class="marked">Email</h5>
+                  <h5>{{ newOrder.email }}</h5>
+                </div>
+
+                <div class="str">
+                  <h5 class="marked">Телефон</h5>
+                  <h5 class="num">{{ newOrder.phone }}</h5>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="address">
+              <h2>Адрес доставки</h2>
+              <hr>
+              <input :disabled="visible" type="text" class="form-control" id="address" placeholder="Введите ваш адрес" v-model="newOrder.to" required>
+              <div class="ymap-container">
+                <yandex-map
+                    :coords="coords"
+                    :zoom="10"
+                    @click="onClick"
+                >
+                  <ymap-marker
+                      :coords="coords"
+                      marker-id="124"
+                      hint-content="some hint"
+                  />
+                </yandex-map>
+              </div>
+            </div>
+
+            <div class="custom-control custom-checkbox">
+              <input :disabled="visible" type="checkbox" class="custom-control-input" id="finish-text" v-model="checkedConfirm">
+              <label class="custom-control-label" for="finish-text">Я даю согласие на обработку персональных данных</label>
+            </div>
+            <button class="btn btn-success btn-block" :disabled="!checkedConfirm || visible" @click="saveNewOrder()">Оплатить заказ</button>
+            <button class="btn btn-danger btn-block" :disabled="visible" @click="clearForm()">Очистить форму</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
 </template>
 
 <script>
@@ -195,24 +198,99 @@ import PayError from './PaymentOrderError.vue';
 
 </script>
 <style scoped>
-.str{
+main{
   display: flex;
-  justify-content: left;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
-.dop{
-  margin-left: 30px;
+.wrap{
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text{
+  width: 100%;
+  margin-top: 5px;
 }
 h1{
-  margin-top: 20px;
+  font-size: 3.4em;
+  font-weight: bold;
+}
+.container{
+  display: flex;
+  width: 100%;
+  padding: 0;
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 40px;
 }
 h2{
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 1.7em;
 }
-.cur{
-  font-weight: 600;
+.address{
+  margin-top: 40px;
 }
-button{
-  margin-bottom: 50px !important;
+.form,.address{
+  width: 100%;
+}
+input{
+  margin-top: 30px;
 }
 
+.custom-control-label{
+  margin-left: 10px;
+}
+.btn{
+  margin-top: 15px;
+}
+.btn-danger{
+  margin-left: 10px;
+}
+.strs{
+  display: flex;
+  flex-direction: column;
+  width: 15em;
+}
+.str{
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  margin-top: 10px;
+}
+.marked{
+  font-weight: 600;
+}
+.ymap-container{
+  margin-top: 20px;
+  width: 100%!important;
+}
+.breadcrumb{
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  justify-content: left;
+  margin-bottom: 0;
+}
+p{
+  margin:0;
+}
+.rl{
+  text-decoration: none;
+  color: inherit;
+}
+.slash{
+  margin: 0 10px;
+}
+b{
+  color: #4e4e4e;
+  font-weight: 600;
+}
+.num{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
 </style>

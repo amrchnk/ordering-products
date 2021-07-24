@@ -99,7 +99,7 @@ export default {
     let email = document.cookie.replace(/(?:(?:^|.*;\s*)email=\s*\s*([^;]*).*$)|^.*$/, "$1");
     let password = document.cookie.replace(/(?:(?:^|.*;\s*)password=\s*([^;]*).*$)|^.*$/, "$1");
     if (email !== "" && password !== "")
-      await this.$router.push('/userPage');
+      await this.$router.push('/');
   }
 }
 </script>

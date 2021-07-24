@@ -40,7 +40,7 @@
                   <img class="b_img" src="@/assets/plus.svg" alt=""></button>
               </div>
               <div v-if="product.added">
-                <span>Добавлено</span>
+                <span class="added">Добавлено</span>
               </div>
               <div v-else>
                 <button class="btn btn-success pay" @click="addInCart(product.id, product.counter, index)">
@@ -360,7 +360,9 @@ h3{
   margin-top:15px;
   width: 100%;
 }
-
+img{
+  width: 100%;
+}
 .category{
   background-color: #5B5B5E;
   color: white;
@@ -375,6 +377,11 @@ h3{
 
 h4{
   margin: 10px 0;
+}
+.added{
+  margin-top: 15px;
+  padding: 6px 12px;
+  display: block;
 }
 @media (max-width: 1350px){
   h3{
@@ -396,11 +403,6 @@ h4{
   }
   .select{
     margin-top: 15px;
-  }
-
-  img{
-    width: 100%;
-
   }
   .toogle{
     width: 2.1em;
