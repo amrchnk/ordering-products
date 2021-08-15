@@ -8,5 +8,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 # копирование содержимого локальной директории src в рабочую директорию
 COPY app/ .
+
+EXPOSE 5003
 # команда, выполняемая при запуске контейнера
 CMD [ "python", "./main.py" ]

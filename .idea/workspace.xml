@@ -2,39 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33ac9f2a-e1f2-424d-8fc5-22e0a2e2f7a6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/db/flask_test.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_carts/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_carts/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_carts/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_carts/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_carts/.idea/ms_carts.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_carts/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_carts/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_carts/app_carts.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_catalog/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_catalog/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_catalog/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_catalog/.idea/ms_catalog.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_catalog/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_catalog/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_catalog/app_catalog.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_clients/app_clients.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_orders/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_orders/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_orders/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_orders/.idea/ms_orders.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_orders/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_orders/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_orders/app_orders.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_payments/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_payments/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_payments/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_payments/.idea/ms_payments.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_payments/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_payments/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/ms_payments/app_payments.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/myapp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/ms_catalog/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/services/ms_catalog/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +65,7 @@
       <workItem from="1629020696692" duration="6795000" />
       <workItem from="1629029317554" duration="719000" />
       <workItem from="1629030361577" duration="404000" />
-      <workItem from="1629030961454" duration="10991000" />
+      <workItem from="1629030961454" duration="12081000" />
     </task>
     <servers />
   </component>

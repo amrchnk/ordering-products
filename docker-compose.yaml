@@ -11,27 +11,27 @@ services:
     container_name: clients
     build: ./services/ms_clients
     ports:
-      - "5000:80"
+      - "5000"
   catalog:
     container_name: catalog
     build: ./services/ms_catalog
     ports:
-      - "5003:80"  
+      - "5003"
   orders:
     container_name: orders
     build: ./services/ms_orders
     ports:
-      - "5001:80"
+      - "5001"
   basket:
     container_name: basket
     build: ./services/ms_basket
     ports:
-      - "5002:80"
+      - "5002"
   payments:
     container_name: payments
     build: ./services/ms_payments
     ports:
-      - "5004:80"
+      - "5004"
   db_clients:
     container_name: db_clients
     build: ./services/db_clients
