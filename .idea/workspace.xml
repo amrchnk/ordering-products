@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33ac9f2a-e1f2-424d-8fc5-22e0a2e2f7a6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/services/ms_catalog/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/services/ms_catalog/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +66,7 @@
       <workItem from="1629020696692" duration="6795000" />
       <workItem from="1629029317554" duration="719000" />
       <workItem from="1629030361577" duration="404000" />
-      <workItem from="1629030961454" duration="12081000" />
+      <workItem from="1629030961454" duration="16098000" />
     </task>
     <servers />
   </component>
