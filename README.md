@@ -25,6 +25,7 @@ Frontend приложения представляет собой многост
 используется Docker-compose. Для запуска образов
 - соберите образ с помощью docker-compose build
 - запустите сервисы с помощью докера docker-compose up -d
+
 ##Внешний вид сайта
 ![alt text](screenshots/Main.png)
 ![alt text](screenshots/Catalog.png)
