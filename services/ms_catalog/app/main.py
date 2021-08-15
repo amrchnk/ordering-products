@@ -11,10 +11,10 @@ from flask_jsonrpc import JSONRPC
 
 app = Flask(__name__)
 
-app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_HOST'] = 'db_catalog'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'flask'
+app.config['MYSQL_PASSWORD'] = 'testSQL'
+app.config['MYSQL_DB'] = 'catalog_test'
 app.config['MYSQL_DATABASE_PORT'] = 3306
 
 mysql = MySQL(app)
@@ -98,4 +98,4 @@ def get_product(products: list) -> list:
         return ["Server problem"]
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=5003)
+    app.run(host ='0.0.0.0', port=5003, debug=True)

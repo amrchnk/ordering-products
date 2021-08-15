@@ -1,7 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="33ac9f2a-e1f2-424d-8fc5-22e0a2e2f7a6" name="Default Changelist" comment="" />
+    <list default="true" id="33ac9f2a-e1f2-424d-8fc5-22e0a2e2f7a6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/db/flask_test.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_carts/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_carts/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_carts/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_carts/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_carts/.idea/ms_carts.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_carts/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_carts/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_carts/app_carts.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_catalog/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_catalog/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_catalog/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_catalog/.idea/ms_catalog.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_catalog/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_catalog/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_catalog/app_catalog.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_clients/app_clients.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_orders/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_orders/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_orders/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_orders/.idea/ms_orders.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_orders/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_orders/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_orders/app_orders.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_payments/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_payments/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_payments/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_payments/.idea/ms_payments.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_payments/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_payments/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/ms_payments/app_payments.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/myapp.py" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +54,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/services/ms_catalog/app" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -29,6 +63,22 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ordering-products\services\ms_catalog\app" />
+      <recent name="D:\ordering-products\services\ms_catalog" />
+      <recent name="D:\ordering-products\project" />
+      <recent name="D:\ordering-products" />
+      <recent name="D:\ordering-products\services" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ordering-products\services\ms_orders\app" />
+      <recent name="D:\ordering-products\services\ms_payments\app" />
+      <recent name="D:\ordering-products\services\ms_clients\app" />
+      <recent name="D:\ordering-products\services\ms_carts\app" />
+      <recent name="D:\ordering-products\services\ms_catalog\app" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -44,7 +94,10 @@
       <workItem from="1626793132863" duration="770000" />
       <workItem from="1626858707505" duration="65012000" />
       <workItem from="1628924839075" duration="1624000" />
-      <workItem from="1629020696692" duration="3571000" />
+      <workItem from="1629020696692" duration="6795000" />
+      <workItem from="1629029317554" duration="719000" />
+      <workItem from="1629030361577" duration="404000" />
+      <workItem from="1629030961454" duration="10991000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,59 @@
+version: '3'
+
+services:
+  fe:
+    container_name: fe
+    build: ./project
+    restart: always
+    ports:
+      - "8080:8080"
+  clients:
+    container_name: clients
+    build: ./services/ms_clients
+    ports:
+      - "5000:80"
+  catalog:
+    container_name: catalog
+    build: ./services/ms_catalog
+    ports:
+      - "5003:80"  
+  orders:
+    container_name: orders
+    build: ./services/ms_orders
+    ports:
+      - "5001:80"
+  basket:
+    container_name: basket
+    build: ./services/ms_basket
+    ports:
+      - "5002:80"
+  payments:
+    container_name: payments
+    build: ./services/ms_payments
+    ports:
+      - "5004:80"
+  db_clients:
+    container_name: db_clients
+    build: ./services/db_clients
+    ports:
+      - "3307:3306"
+  db_catalog:
+    container_name: db_catalog
+    build: ./services/db_catalog
+    ports:
+      - "3308:3306"
+  db_orders:
+    container_name: db_orders
+    build: ./services/db_orders
+    ports:
+      - "3309:3306"
+  db_basket:
+    container_name: db_basket
+    build: ./services/db_basket
+    ports:
+      - "3310:3306"
+  db_payments:
+    container_name: db_payments
+    build: ./services/db_payments
+    ports:
+      - "3311:3306"

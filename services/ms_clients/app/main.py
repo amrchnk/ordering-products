@@ -10,10 +10,10 @@ from flask_jsonrpc import JSONRPC
 '''
 app = Flask(__name__)
 
-app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_HOST'] = 'db_clients'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'flask'
+app.config['MYSQL_PASSWORD'] = 'testSQL'
+app.config['MYSQL_DB'] = 'clients_test'
 app.config['MYSQL_DATABASE_PORT'] = 3306
 
 mysql = MySQL(app)
@@ -106,4 +106,4 @@ def change_user(id_user: int,full_name: str, email: str, password: str, phone: s
         return str(e)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host ='0.0.0.0', port=5000, debug=True)
